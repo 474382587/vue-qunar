@@ -12,8 +12,9 @@
         <button v-on:click=handleBtnClick>Submit</button>
 
         <ul>
-            <todo-item v-for="(item,index) in list" :index="index" v-bind:task="item" @delete="deleteItem"></todo-item>
+            <todo-item v-for="(item,index) in list" :index="index" v-bind:task="item" @delete="deleteItem" :test="3+3"></todo-item>
         </ul>
+        <div is="hi"></div>
     </div>
     <script src="../vendor/vue.js"></script>
     <script>
@@ -33,16 +34,27 @@
         var app = new Vue({
             el: "#app",
             components: {
+                "hi": {
+                    template: "<span ref='hello' @click='prints'>Hello World!</span>",
+                    methods: {
+                        prints() {
+                            console.log(this.$refs.hello)
+                        }
+                    }
+
+                },
                 "todo-item": {
                     props: [
+                        "test",
                         "task",
                         "index"
                     ],
-                    template: `<li>{{task}} <button @click="remove">Delete</button></li>`,
-                    methods:{
-                        remove(){
+                    template: `<li>{{task}} {{test}}<button @click="remove">Delete</button></li>`,
+                    methods: {
+                        remove() {
                             this.$emit("delete");
-                        }
+                        },
+
                     }
                 }
             },
@@ -58,8 +70,7 @@
                         this.inputValue = "";
                     }
                 },
-                deleteItem(){
-                    this.list.
+                deleteItem() {
                 }
             }
         }); 
