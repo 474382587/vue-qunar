@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="inputValue">
+        <button v-on:click=handleBtnClick>Submit</button>
+
+        <ul>
+            <todo-item v-for="(item,index) in list" :index="index" v-bind:task="item" @delete="deleteItem"></todo-item>
+        </ul>
+    </div>
+    <script src="../vendor/vue.js"></script>
+    <script>
+        // global component
+        // Vue.component("todo-item",{
+        // props:[
+        //     "task"
+        // ],
+        // template:`<li>{{task}}</li>`
+        // });
+        // var aaa = {
+        //     props: [
+        //         "task"
+        //     ],
+        //     template: `<li>{{task}}</li>`
+        // }
+        var app = new Vue({
+            el: "#app",
+            components: {
+                "todo-item": {
+                    props: [
+                        "task",
+                        "index"
+                    ],
+                    template: `<li>{{task}} <button @click="remove">Delete</button></li>`,
+                    methods:{
+                        remove(){
+                            this.$emit("delete");
+                        }
+                    }
+                }
+            },
+            data: {
+                inputValue: '',
+                content: "Hello Vue!",
+                list: []
+            },
+            methods: {
+                handleBtnClick() {
+                    if (this.inputValue !== "") {
+                        this.list.push(this.inputValue);
+                        this.inputValue = "";
+                    }
+                },
+                deleteItem(){
+                    this.list.
+                }
+            }
+        }); 
+    </script>
+</body>
+
+</html>
