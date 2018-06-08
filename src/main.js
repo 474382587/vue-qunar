@@ -7,9 +7,11 @@ import router from './router'
 // 300ms 点击延迟 / 300ms click latency
 import fastClick from 'fastclick'
 // reset your CSS style for all browser
-import './assets/styles/reset.css'
+import 'styles/reset.css'
 // solution for CSS 1px different on high resolution screen cellphones
-import './assets/styles/border.css'
+import 'styles/border.css'
+// get iconfont
+import 'styles/iconfont.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
