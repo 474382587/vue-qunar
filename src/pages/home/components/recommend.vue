@@ -16,6 +16,7 @@
                 </div>
             </li>
         </ul>
+        <a href="#" class="more-info">Load All Items</a>
     </div>
 </template>
 
@@ -137,4 +138,9 @@ export default {
         }
     }
 }
+.more-info
+  display block
+  line-height  0.80rem
+  text-align center
+  color $bgColor
 </style>

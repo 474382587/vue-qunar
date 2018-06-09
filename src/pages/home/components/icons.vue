@@ -11,12 +11,6 @@
     </swiper-slide>
     <div class="swiper-pagination"  slot="pagination"></div>
   </swiper>
-  <!-- <div class="icon" v-for="item in iconList" :key="item.id">
-    <div class="icon-img">
-      <img class="icon-img-content" :src="item.imgUrl" alt="item.id">
-    </div>
-    <p class="icon-desc">{{item.description}}</p>
-  </div> -->
 </div>
 </template>
 
