@@ -3,7 +3,7 @@
         <li class="item"
             v-for="item in letters"
             :key="item" @click="onLetterClick"
-            @touchstart="onTouchStart"
+            @touchstart.prevent="onTouchStart"
             @touchend="onTouchEnd"
             @touchmove="onTouchMove"
             :ref="item"
@@ -59,8 +59,8 @@ export default {
 @import '~styles/variables.styl';
 
 .list {
-    position: fixed;
-    right: 0;
+    position: absolute;
+    left: 100%;
     top: 1.58rem;
     bottom: 0;
     width: 0.4rem;
