@@ -60,7 +60,7 @@ export default {
 
 .list {
     position: absolute;
-    left: 100%;
+    right: 0;
     top: 1.58rem;
     bottom: 0;
     width: 0.4rem;
