@@ -6,9 +6,11 @@
     <div class="header-input">
       <span class="iconfont">&#xe632;</span>
     </div>
-    <div class="header-right">
-      <span class="iconfont arrow-down">City &#xe64a;</span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        <span class="iconfont arrow-down">City &#xe64a;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -49,4 +51,5 @@ export default {
     width: 1.24rem;
     float: right;
     text-align: center;
+    color #fff
 </style>
