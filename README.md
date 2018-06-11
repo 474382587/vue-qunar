@@ -1,6 +1,7 @@
 # vue-qunar
 
-> A Vue.js project
+> A Vue.js project    
+> Using Vue-awsome-swipper for swiper
 
 ## Build Setup
 
