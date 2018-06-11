@@ -11,10 +11,10 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/dist': {
+      '/vue-qunar/dist': {
         'target': 'http://localhost:8080',
         'pathRewrite': {
-          '^/dist': '/'
+          '^/vue-qunar/dist': '/'
         }
       }
     },

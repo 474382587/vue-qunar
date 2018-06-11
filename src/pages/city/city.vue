@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     getCityInfo () {
-      axios.get('/dist/static/mock/city.json')
+      axios.get('/vue-qunar/dist/static/mock/city.json')
         .then(this.handleGetCityInfoSucc)
     },
     handleGetCityInfoSucc (res) {
