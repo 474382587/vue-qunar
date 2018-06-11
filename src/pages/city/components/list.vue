@@ -4,71 +4,23 @@
             <div class="area">
                     <div class="title border-topbottom">Current Location</div>
                     <div class="button-list">
-                        <div class="button-wrapper"><div class="button">Vancouver</div></div>
-                        <div class="button-wrapper"><div class="button">Burnaby</div></div>
-                        <div class="button-wrapper"><div class="button">Richmond</div></div>
+                        <div class="button-wrapper">
+                            <div class="button">Vancouver</div>
+                        </div>
                     </div>
                 </div>
                 <div class="area">
                     <div class="title border-topbottom">Most Popular</div>
                     <div class="button-list">
-                        <div class="button-wrapper"><div class="button">Toronto</div></div>
-                        <div class="button-wrapper"><div class="button">Calgary</div></div>
-                        <div class="button-wrapper"><div class="button">Vancouver</div></div>
+                        <div class="button-wrapper" v-for="item in pop" :key="item.id">
+                            <div class="button">{{(item.spell).charAt(0).toUpperCase()+(item.spell).slice(1)}}</div> <!-- item.name -->
+                        </div>
                     </div>
                 </div>
-                <div class="area">
-                    <div class="title  border-topbottom">A</div>
+                <div class="area" v-for="(item,key) in cities" :key="key">
+                    <div class="title  border-topbottom">{{key}}</div>
                     <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                </div>
-                <div class="area">
-                    <div class="title  border-topbottom">A</div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                </div>
-                <div class="area">
-                    <div class="title  border-topbottom">A</div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
-                    </div>
-                    <div class="item-list">
-                        <div class="item border-topbottom">Abbotsford</div>
+                        <div class="item border-topbottom" v-for="innerItem in item" :key="innerItem.id">{{(innerItem.spell).charAt(0).toUpperCase()+(innerItem.spell).slice(1)}}</div>
                     </div>
                 </div>
             </div>
@@ -79,6 +31,10 @@
 import Bscroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    cities: Object,
+    pop: Array
+  },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
   }
