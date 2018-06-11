@@ -59,7 +59,7 @@ export default {
 @import '~styles/variables.styl';
 
 .list {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 1.58rem;
     bottom: 0;
