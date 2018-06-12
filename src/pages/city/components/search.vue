@@ -8,7 +8,8 @@
                 <li class="search-item border-bottom" v-for="item in list" :key="item.id">
                     {{item.spell.charAt(0).toUpperCase() + item.spell.slice(1)}}
                 </li>
-                <li class="search-item border-bottom" v-if="hasNoData">Result not found.</li>
+                <li class="search-item border-bottom" v-show="hasNoData">Result not found.</li>
+                <li class="search-item border-bottom" v-show="enterData">Searching...</li>
             </ul>
         </div>
     </div>
