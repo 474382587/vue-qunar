@@ -28,8 +28,13 @@ export default {
   },
   data () {
     return {
-      touchStart: false
+      touchStart: false,
+      startY: 0,
+      timmer: null
     }
+  },
+  updated () {
+    this.startY = this.$refs['A'][0].offsetTop
   },
   methods: {
     onLetterClick (event) {
@@ -40,12 +45,16 @@ export default {
     },
     onTouchMove (event) {
       if (this.touchStart === true) {
-        const startY = this.$refs['A'][0].offsetTop
-        const touchY = event.touches[0].clientY - 79
-        const index = Math.floor((touchY - startY) / 20)
-        if (index >= 0 && index < this.letters.length) {
-          this.$emit('change', this.letters[index])
+        if (this.timmer) {
+          clearTimeout(this.timmer)
         }
+        this.timmer = setTimeout(() => {
+          const touchY = event.touches[0].clientY - 79
+          const index = Math.floor((touchY - this.startY) / 20)
+          if (index >= 0 && index < this.letters.length) {
+            this.$emit('change', this.letters[index])
+          }
+        }, 16)
       }
     },
     onTouchEnd (event) {
