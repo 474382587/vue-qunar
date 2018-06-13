@@ -1,9 +1,9 @@
 <template>
    <div>
      <home-header></home-header>
-     <home-swiper></home-swiper>
-     <home-icons></home-icons>
-     <home-recommend></home-recommend>
+     <home-swiper :swiperList="swiperList"></home-swiper>
+     <home-icons :iconList="iconList"></home-icons>
+     <home-recommend :recommendList="recommendList"></home-recommend>
      <home-weekend></home-weekend>
    </div>
 </template>
@@ -25,12 +25,28 @@ export default {
     'home-weekend': HomeWeekend
   },
   mounted () {
-    // this.getHomeInfo()
+    this.getHomeInfo()
+  },
+  data () {
+    return {
+      swiperList: [],
+      iconList: [],
+      recommendList: []
+    }
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json')
-        .then(this.getHomeInfoSuccess)
+      axios.get('/vue-qunar/dist/static/mock/index.json')
+        .then(this.handleGetHomeInfoSucc)
+    },
+    handleGetHomeInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.swiperList = data.swiperList
+        this.iconList = data.iconList
+        this.recommendList = data.recommendList
+      }
     },
     getHomeInfoSuccess (res) {
       console.log(res)
