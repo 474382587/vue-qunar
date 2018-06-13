@@ -1,0 +1,26 @@
+{
+  "data": {
+    "galleryImage": [
+      {
+        "imgUrl":
+          "static/88ba72984816cd08810a80e0d65e4224.water.jpg_r_800x800_306e631b.jpg",
+        "id": "01"
+      },
+      {
+        "imgUrl":
+          "static/0a981148deab444887db5088456ce7f9.water.jpg_r_800x800_47153743.jpg",
+        "id": "02"
+      },
+      {
+        "imgUrl":
+          "static/895a1b7add84f23faca053ce9e3153db.water.jpg_r_800x800_087730c7.jpg",
+        "id": "03"
+      },
+      {
+        "imgUrl":
+          "static/4003f9dd7bebf61eccbf64046e26d487.water.jpg_r_800x800_4701d58f.jpg",
+        "id": "04"
+      }
+    ]
+  }
+}

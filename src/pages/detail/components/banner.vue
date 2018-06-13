@@ -1,18 +1,41 @@
 <template>
-    <div class="banner">
-        <img class="banner-img" src="static/4003f9dd7bebf61eccbf64046e26d487.water.jpg_600x330_a80ff353.jpg" alt="">
-        <div class="banner-info">
-            <div class="banner-title">LA Disneyland</div>
-            <div class="banner-number">
-                <span class="iconfont banner-icon">&#xe600;</span>
-            33</div>
+    <div>
+        <div class="banner" @click="openGallery">
+            <img class="banner-img" src="static/4003f9dd7bebf61eccbf64046e26d487.water.jpg_600x330_a80ff353.jpg" alt="">
+            <div class="banner-info">
+                <div class="banner-title">LA Disneyland</div>
+                <div class="banner-number">
+                    <span class="iconfont banner-icon">&#xe600;</span>
+                33</div>
+            </div>
         </div>
+        <common-gallery v-show="displayGallery" :imageList="imageList" @hide="hideGallery"></common-gallery>
     </div>
 </template>
 
 <script>
+import CommonGallery from 'common/gallery/gallery.vue'
 export default {
-  name: 'Banner'
+  name: 'Banner',
+  components: {
+    'common-gallery': CommonGallery
+  },
+  props: {
+    imageList: Array
+  },
+  data () {
+    return {
+      displayGallery: false
+    }
+  },
+  methods: {
+    openGallery () {
+      this.displayGallery = true
+    },
+    hideGallery () {
+      this.displayGallery = false
+    }
+  }
 }
 </script>
 
