@@ -8,7 +8,8 @@
     </div>
     <router-link to="/city">
       <div class="header-right">
-        <span class="iconfont arrow-down">City &#xe64a;</span>
+        {{this.$store.state.city}}
+        <span class="iconfont arrow-down">&#xe64a;</span>
       </div>
     </router-link>
   </div>
@@ -48,7 +49,8 @@ export default {
     .arrow-down
       font-size: .24rem;
       margin-left: -.04rem;
-    width: 1.24rem;
+    // width: 1.64rem;
+    padding: 0 .2rem
     float: right;
     text-align: center;
     color #fff

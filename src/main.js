@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// import Vuex
+import store from './store/index.js'
 
 // Vue awsome swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -26,6 +28,7 @@ Vue.use(VueAwesomeSwiper /* { default global options } */)
 new Vue({
   el: '#app',
   router,
+  store: store,
   components: { App },
   template: '<App/>'
 })
