@@ -4,7 +4,7 @@
             Hot Deals
         </div>
         <ul>
-            <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+            <router-link tag="li" :to="'/detail/'+item.id" class="item border-bottom" v-for="item of recommendList" :key="item.id">
                 <div class="item-img-wrapper">
                     <img class="item-img" :src="item.imgUrl" alt="DL"/>
                 </div>
@@ -14,7 +14,7 @@
                     <p class="item-price">{{item.price}}</p>
                     <p class="item-button"><a :href="item.link">More Info</a></p>
                 </div>
-            </li>
+            </router-link>
         </ul>
         <a href="#" class="more-info">Load All Items</a>
     </div>

@@ -1,7 +1,15 @@
 # vue-qunar
 
+## [Preview](josephjin.site/vue-qunar/dist/)
 > A Vue.js project    
 > Using Vue-awsome-swipper for swiper
+
+## Complete:
+    - Home page    
+    - City page    
+
+## In progress
+    - Detail page    
 
 ## Build Setup
 
