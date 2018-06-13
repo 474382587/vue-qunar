@@ -1,20 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import state from './state/state.js'
+import actions from './actions/actions.js'
+import mutations from './mutations/mutations.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-    city: 'Beijing'
-  },
-  actions: {
-    changeCity (action, city) {
-      action.commit('changeCity', city)
-    }
-  },
-  mutations: {
-    changeCity (state, city) {
-      state.city = city
-    }
-  }
+  state,
+  actions,
+  mutations
+  // getters: {
+  //   doubleCity (state) {
+  //     return state.city + ' ' + state.city
+  //   }
+  // }
 })
