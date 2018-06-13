@@ -1,26 +1,29 @@
 <template>
     <div class="list" ref="wrapper">
-        <div>
+        <div @click="onCitySelect">
+            <!--Current Location-->
             <div class="area">
                     <div class="title border-topbottom">Current Location</div>
                     <div class="button-list">
                         <div class="button-wrapper">
-                            <div class="button">Vancouver</div>
+                            <div class="button">{{this.$store.state.city}}</div>
                         </div>
                     </div>
                 </div>
+                <!--Popular Location-->
                 <div class="area">
                     <div class="title border-topbottom">Most Popular</div>
                     <div class="button-list">
-                        <div class="button-wrapper" v-for="item in pop" :key="item.id">
+                        <div class="button-wrapper" v-for="item in pop" :key="item.id" @click="onCityClick((item.spell).charAt(0).toUpperCase()+(item.spell).slice(1))">
                             <div class="button">{{(item.spell).charAt(0).toUpperCase()+(item.spell).slice(1)}}</div> <!-- item.name -->
                         </div>
                     </div>
                 </div>
+                <!--City List-->
                 <div class="area" v-for="(item,key) in cities" :key="key" :ref="key">
                     <div class="title  border-topbottom">{{key}}</div>
                     <div class="item-list">
-                        <div class="item border-topbottom" v-for="innerItem in item" :key="innerItem.id">{{(innerItem.spell).charAt(0).toUpperCase()+(innerItem.spell).slice(1)}}</div>
+                        <div class="item border-topbottom" v-for="innerItem in item" :key="innerItem.id" @click="onCityClick((innerItem.spell).charAt(0).toUpperCase()+(innerItem.spell).slice(1))">{{(innerItem.spell).charAt(0).toUpperCase()+(innerItem.spell).slice(1)}}</div>
                     </div>
                 </div>
             </div>
@@ -35,6 +38,14 @@ export default {
     cities: Object,
     pop: Array,
     letter: String
+  },
+  methods: {
+    onCityClick (city) {
+      this.$store.dispatch('changeCity', city)
+    },
+    onCitySelect () {
+      this.$router.push({path: '/'})
+    }
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)

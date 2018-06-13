@@ -4,8 +4,8 @@
             <input v-model="keyword" type="text" placeholder="Please enter city name..." class="search-input">
         </div>
         <div class="search-content" ref="search" v-show="keyword">
-            <ul>
-                <li class="search-item border-bottom" v-for="item in list" :key="item.id">
+            <ul @click="onCitySelect">
+                <li class="search-item border-bottom" v-for="item in list" :key="item.id" @click="onCityClick((item.spell).charAt(0).toUpperCase()+(item.spell).slice(1))">
                     {{item.spell.charAt(0).toUpperCase() + item.spell.slice(1)}}
                 </li>
                 <li class="search-item border-bottom" v-show="hasNoData">Result not found.</li>
@@ -37,6 +37,16 @@ export default {
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs['search'])
+  },
+  methods: {
+    onCityClick (city) {
+      this.$store.dispatch('changeCity', city)
+    },
+    onCitySelect () {
+      if (!this.hasNoData) {
+        this.$router.push({path: '/'})
+      }
+    }
   },
   watch: {
     keyword () {
