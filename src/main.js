@@ -25,6 +25,9 @@ Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 /* eslint-disable no-new */
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0)
+})
 new Vue({
   el: '#app',
   router,

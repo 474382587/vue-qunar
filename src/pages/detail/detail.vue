@@ -1,11 +1,14 @@
 <template>
     <div>
       <detail-banner :imageList="imageList"></detail-banner>
+      <detail-header :imageList="imageList"></detail-header>
+      <div class="content">Dummy Data</div>
     </div>
 </template>
 
 <script>
 import Banner from './components/banner.vue'
+import DetailHeader from './components/header.vue'
 import axios from 'axios'
 export default {
   name: 'Detail',
@@ -15,7 +18,8 @@ export default {
     }
   },
   components: {
-    'detail-banner': Banner
+    'detail-banner': Banner,
+    'detail-header': DetailHeader
   },
   mounted () {
     axios.get('/vue-qunar/dist/static/mock/gallery.json')
@@ -28,6 +32,7 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="stylus" scoped>
+.content
+  height 50rem
 </style>
