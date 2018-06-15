@@ -3,9 +3,9 @@
     <div class="title"><div><img class="popular-title-icon" src="static/popularIcon.png" alt="">Trending This Week</div><router-link class="popular-title-link" to="/">More Places</router-link></div>
     <swiper ref="mySwiper" :options="swiperOptions">
       <swiper-slide v-for="item in popularList" :key="item.id">
-        <router-link :to="'/detail/' + item.id">
-          <img class="topIcon" :src="'static/top' + item.id + '.png'" alt="" v-if="item.id < 4">
-          <img class="swiper-img" :src="item.imgUrl" :alt="item.id" >
+        <router-link tag="div" class="item-link" :to="'/detail/' + item.id">
+            <img class="topIcon" :src="'static/top' + item.id + '.png'" alt="" v-if="item.id < 4">
+            <img class="swiper-img" :src="item.imgUrl" :alt="item.id" >
           <div class="description">
             <p class="name">{{item.title}}</p>
             <p class="price">$<span>{{item.price}}</span></p>
@@ -31,6 +31,14 @@ export default {
         slidesPerView: 3.5
       }
     }
+  },
+  created () {
+    const ratio = window.devicePixelRatio || 1
+    const w = screen.width * ratio
+    console.log(w)
+    if (w < 480) {
+      this.swiperOptions.slidesPerView = 3
+    }
   }
 }
 </script>
@@ -39,7 +47,7 @@ export default {
 @import '~styles/mixins.styl'
 @import '~styles/variables.styl'
 .popular >>> .swiper-wrapper
-  padding .1rem .2rem
+  padding .1rem .1rem
 .popular >>> .swiper-slide
   margin-right .06rem
 .popular
@@ -62,7 +70,6 @@ export default {
     width .84rem
     height .4rem
     top -.08rem
-    left 0.08rem
     border-radius .04rem
     overflow hidden
   .description
@@ -87,7 +94,6 @@ export default {
       span
         color #ff8300
 .swiper-img
-  margin 0 auto
   display block
   width 2rem
 .viewMore
@@ -96,4 +102,7 @@ export default {
   padding-left .26rem
   font-size .32rem
   color: #009cd4
+.item-link
+  width 2rem
+  margin 0 auto
 </style>
