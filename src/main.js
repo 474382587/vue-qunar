@@ -9,6 +9,9 @@ import store from './store/index.js'
 // Vue awsome swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+// polyfill
+import 'babel-polyfill'
+
 // require styles
 import 'swiper/dist/css/swiper.css'
 
