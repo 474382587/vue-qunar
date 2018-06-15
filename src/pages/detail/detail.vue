@@ -1,9 +1,9 @@
 <template>
     <div>
-      <detail-banner :imageList="imageList"></detail-banner>
-      <detail-header :imageList="imageList"></detail-header>
+      <detail-banner :bannerData="bannerData"></detail-banner>
+      <detail-header></detail-header>
       <div class="content">
-        <detail-list :list="list"></detail-list>
+        <detail-list :list="categoryList"></detail-list>
       </div>
     </div>
 </template>
@@ -17,40 +17,8 @@ export default {
   name: 'Detail',
   data () {
     return {
-      imageList: [],
-      list: [
-        {
-          title: 'Adult',
-          children: [
-            {
-              title: 'Adult Ticket Rate1',
-              children: [
-                {
-                  title: 'Adult Ticket Rate11'
-                },
-                {
-                  title: 'Adult Ticket Rate12'
-                }
-              ]
-            },
-            {
-              title: 'Adult Ticket Rate2'
-            },
-            {
-              title: 'Adult Ticket Rate3'
-            }
-          ]
-        },
-        {
-          title: 'Child'
-        },
-        {
-          title: 'Senior'
-        },
-        {
-          title: 'Special'
-        }
-      ]
+      bannerData: {},
+      categoryList: []
     }
   },
   components: {
@@ -59,10 +27,19 @@ export default {
     'detail-list': DetailList
   },
   mounted () {
-    axios.get('/vue-qunar/dist/static/mock/gallery.json').then(res => {
+    axios.get('/vue-qunar/dist/static/mock/detail.json', {
+      params: {
+        id: this.$route.params.id
+      }
+    }).then(res => {
       res = res.data
       const data = res.data
-      this.imageList = data.galleryImage
+      this.bannerData = {
+        bannerImg: data.bannerImg,
+        sightName: data.sightName,
+        galleryImage: data.galleryImage
+      }
+      this.categoryList = data.categoryList
     })
   }
 }
@@ -70,6 +47,6 @@ export default {
 
 <style lang="stylus" scoped>
 .content {
-  height: 50rem;
+  height: 20rem;
 }
 </style>

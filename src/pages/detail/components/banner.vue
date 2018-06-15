@@ -1,15 +1,15 @@
 <template>
     <div>
         <div class="banner" @click="openGallery">
-            <img class="banner-img" src="static/4003f9dd7bebf61eccbf64046e26d487.water.jpg_600x330_a80ff353.jpg" alt="">
+            <img class="banner-img" :src="bannerData.bannerImg" alt="">
             <div class="banner-info">
-                <div class="banner-title">LA Disneyland</div>
+                <div class="banner-title">{{bannerData.sightName}}</div>
                 <div class="banner-number">
                     <span class="iconfont banner-icon">&#xe600;</span>
                 33</div>
             </div>
         </div>
-        <common-gallery v-show="displayGallery" :imageList="imageList" @hide="hideGallery"></common-gallery>
+        <common-gallery v-show="displayGallery" :imageList="bannerData.galleryImage" @hide="hideGallery"></common-gallery>
     </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     'common-gallery': CommonGallery
   },
   props: {
-    imageList: Array
+    bannerData: Object
   },
   data () {
     return {
