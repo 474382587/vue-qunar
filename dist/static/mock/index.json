@@ -1,6 +1,44 @@
 {
   "ret": true,
   "data": {
+    "popularList": [
+      {
+        "id": "0001",
+        "imgUrl": "static/pop1.jpg",
+        "price": "12",
+        "title": "Palace Museum"
+      },
+      {
+        "id": "0002",
+        "imgUrl": "static/pop2.jpg",
+        "price": "23",
+        "title": "Great Wall"
+      },
+      {
+        "id": "0003",
+        "imgUrl": "static/pop3.jpg",
+        "price": "33",
+        "title": "Summer Palace"
+      },
+      {
+        "id": "0004",
+        "imgUrl": "static/pop4.jpg",
+        "price": "54",
+        "title": "Balala Hot Spring"
+      },
+      {
+        "id": "0005",
+        "imgUrl": "static/pop5.jpg",
+        "price": "67",
+        "title": "National Aquatics Center"
+      },
+      {
+        "id": "0006",
+        "imgUrl": "static/pop6.jpg",
+        "price": "56",
+        "title": "Glass Skywalk"
+      }
+    ],
     "swiperList": [
       {
         "id": "0001",
