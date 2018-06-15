@@ -43,6 +43,10 @@ export default {
   },
   activated () {
     window.addEventListener('scroll', this.onScroll)
+  },
+  // global eventlistener removal
+  deactivated () {
+    window.removeEventListener('scroll', this.onScroll)
   }
 }
 </script>
@@ -68,6 +72,7 @@ export default {
 }
 
 .header-fixed {
+  z-index 2
   position: fixed;
   top: 0;
   left: 0;
