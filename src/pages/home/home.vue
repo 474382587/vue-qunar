@@ -3,6 +3,8 @@
      <home-header></home-header>
      <home-swiper :swiperList="swiperList"></home-swiper>
      <home-icons :iconList="iconList"></home-icons>
+     <home-featured></home-featured>
+     <home-popular :popularList="popularList"></home-popular>
      <home-recommend :recommendList="recommendList"></home-recommend>
      <home-weekend></home-weekend>
    </div>
@@ -15,6 +17,8 @@ import HomeSwiper from './components/swiper'
 import HomeIcons from './components/icons'
 import HomeRecommend from './components/recommend'
 import HomeWeekend from './components/weekend'
+import HomeFeatured from './components/featured'
+import HomePopular from './components/popular'
 import { mapState } from 'vuex'
 export default {
   name: 'Home',
@@ -23,7 +27,9 @@ export default {
     'home-header': Header,
     'home-swiper': HomeSwiper,
     'home-icons': HomeIcons,
-    'home-weekend': HomeWeekend
+    'home-weekend': HomeWeekend,
+    'home-featured': HomeFeatured,
+    'home-popular': HomePopular
   },
   computed: {
     ...mapState(['city'])
@@ -43,6 +49,7 @@ export default {
       swiperList: [],
       iconList: [],
       recommendList: [],
+      popularList: [],
       lastCity: ''
     }
   },
@@ -58,6 +65,8 @@ export default {
         this.swiperList = data.swiperList
         this.iconList = data.iconList
         this.recommendList = data.recommendList
+        this.popularList = data.popularList
+        console.log(this.popularList)
       }
     },
     getHomeInfoSuccess (res) {
