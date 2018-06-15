@@ -40,6 +40,7 @@ export default {
   padding .1rem .2rem
 .popular >>> .swiper-slide
   margin-right .06rem
+  width 2rem
 .popular
   .title
     display flex
@@ -60,6 +61,7 @@ export default {
     width .84rem
     height .4rem
     top -.08rem
+    left 0.08rem
     border-radius .04rem
     overflow hidden
   .description
@@ -84,5 +86,7 @@ export default {
       span
         color #ff8300
 .swiper-img
+  margin 0 auto
+  display block
   width 2rem
 </style>
