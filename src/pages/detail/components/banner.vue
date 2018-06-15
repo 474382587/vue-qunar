@@ -9,16 +9,20 @@
                 33</div>
             </div>
         </div>
-        <common-gallery v-show="displayGallery" :imageList="bannerData.galleryImage" @hide="hideGallery"></common-gallery>
+        <fade>
+          <common-gallery v-show="displayGallery" :imageList="bannerData.galleryImage" @hide="hideGallery"></common-gallery>
+        </fade>
     </div>
 </template>
 
 <script>
 import CommonGallery from 'common/gallery/gallery.vue'
+import Fade from 'common/fade-animation/fade.vue'
 export default {
   name: 'Banner',
   components: {
-    'common-gallery': CommonGallery
+    'common-gallery': CommonGallery,
+    'fade': Fade
   },
   props: {
     bannerData: Object
