@@ -47,7 +47,7 @@ export default {
       // Here is a better one! With Weather!!!
       */
       axios
-        .get('http://api.openweathermap.org/data/2.5/weather', {
+        .get('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather', {
           params: {
             appid: '215022a8c6b45dcd36b354ca06acc261',
             lat: coordinates.lat,
