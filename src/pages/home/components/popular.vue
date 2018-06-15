@@ -12,7 +12,9 @@
           </div>
         </router-link>
       </swiper-slide>
-      <!-- <swiper-slide><img class="swiper-img" src="" alt="" >sdad</swiper-slide> -->
+      <swiper-slide>
+        <div class="viewMore"> More</div>
+      </swiper-slide>
     </swiper>
   </div>
 </template>
@@ -40,7 +42,6 @@ export default {
   padding .1rem .2rem
 .popular >>> .swiper-slide
   margin-right .06rem
-  width 2rem
 .popular
   .title
     display flex
@@ -89,4 +90,10 @@ export default {
   margin 0 auto
   display block
   width 2rem
+.viewMore
+  height 2.4rem
+  line-height 2.4rem
+  padding-left .26rem
+  font-size .32rem
+  color: #009cd4
 </style>
